@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Shop.Database;
 using Shop.Domain.Models;
 
@@ -14,14 +15,15 @@ namespace Shop.Application.Products
         {
             _context = context;
         }
-        public void Do(int id, string Name, string Description)
+        public async Task Do(string Name, string Description, decimal Value)
         {
             _context.Products.Add(new Product 
-            { 
-                Id = id,
+            {
                 Name = Name,
-                Description = Description
+                Description = Description,
+                Value = Value
             });
+            await _context.SaveChangesAsync();
         }
     }
 }
