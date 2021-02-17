@@ -1,0 +1,16 @@
+﻿@page
+@model Shop.UI.Pages.Admin.IndexModel
+@{
+}
+
+<div id="app">
+    <input type="number" v-model="price" />
+    <button @@click="togglePrice">{{ showPrice ? 'Hide ' : 'Show ' }}Price</button>
+    <p>{{ showPrice ? price : hidePrice }}</p>
+    <p>{{ showPrice ? formatPrice : hidePrice }}</p>
+</div>
+
+@section scripts{ 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="~/js/admin/main.js"></script>
+}
